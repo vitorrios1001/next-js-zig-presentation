@@ -36,6 +36,8 @@ const PostDetail = ({
     <>
       <Head>
         <title>{postDetails.title}</title>
+        <meta name="description" content={postDetails.body} />
+        <meta name="og:image" content="/header-image-2560x1080.jpg" />
       </Head>
 
       <div className='h-60 w-full relative mb-8'>
@@ -52,6 +54,8 @@ const PostDetail = ({
 
       <div className='px-6 md:px-24'>
         <h1 className='text-4xl font-semibold mb-8'>{postDetails.title}</h1>
+
+        <p className='mb-4'>{postDetails.body}</p>
 
         <h2 className='text-2xl font-semibold mb-5'>Comments</h2>
 
