@@ -1,6 +1,7 @@
 import { PostDetails } from '@/types/Post';
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
 import Head from 'next/head';
+import Image from 'next/image';
 import React from 'react';
 
 export const getServerSideProps: GetServerSideProps<{
@@ -37,14 +38,24 @@ const PostDetail = ({
         <title>{postDetails.title}</title>
       </Head>
 
-      <main
-        className={`flex min-h-screen flex-col items-center justify-between p-24`}
-      >
-        <h1 className='text-4xl font-semibold mb-5'>{postDetails.title}</h1>
+      <div className='h-60 w-full relative mb-8'>
+        <Image
+          src='/header-image-2560x1080.jpg'
+          alt='Header image'
+          priority
+          style={{
+            objectFit: 'cover',
+          }}
+          fill
+        />
+      </div>
 
-        <h2 className='text-2xl font-semibold'>Comments</h2>
+      <div className='px-6 md:px-24'>
+        <h1 className='text-4xl font-semibold mb-8'>{postDetails.title}</h1>
 
-        <ul>
+        <h2 className='text-2xl font-semibold mb-5'>Comments</h2>
+
+        <ul className='mb-5'>
           {postDetails.comments.map((comment) => {
             return (
               <li key={comment.id} className='mb-3'>
@@ -57,7 +68,18 @@ const PostDetail = ({
             );
           })}
         </ul>
-      </main>
+      </div>
+
+      <div className='h-32 w-full relative'>
+        <Image
+          src='/footer-2560x1080-grayscale.jpg'
+          alt='Footer image'
+          style={{
+            objectFit: 'cover',
+          }}
+          fill
+        />
+      </div>
     </>
   );
 };

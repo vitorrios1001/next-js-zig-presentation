@@ -16,9 +16,7 @@ export const getStaticProps: GetStaticProps<{
   };
 };
 
-const Posts = ({
-  posts
-}: InferGetStaticPropsType<typeof getStaticProps>) => {
+const Posts = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
   // const [posts, setPostDetails] = React.useState<Post[]>([])
 
   // React.useEffect(() => {
@@ -34,10 +32,9 @@ const Posts = ({
       <Head>
         <title>Posts</title>
       </Head>
-      <main
-        className={`flex min-h-screen flex-col items-center justify-between p-24`}
-      >
-        <h1 className='text-4xl font-semibold mb-5'>Posts</h1>
+
+      <div className='px-6 md:px-24 pb-6'>
+        <h1 className='text-4xl font-semibold my-5 text-center'>Posts</h1>
 
         <ul className='flex flex-col gap-4'>
           {posts.map((post) => {
@@ -53,7 +50,7 @@ const Posts = ({
             );
           })}
         </ul>
-      </main>
+      </div>
     </>
   );
 };
